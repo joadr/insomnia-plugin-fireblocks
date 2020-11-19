@@ -1,0 +1,29 @@
+{
+  "name": "insomnia-plugin-fireblocks",
+  "version": "0.0.1",
+  "author": {
+    "name": "Joaquin Diaz",
+    "email": "joaquin@orionx.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joadr/insomnia-plugin-fireblocks"
+  },
+  "insomnia": {
+    "name": "fireblocks",
+    "description": "Fireblocks JWT Generation"
+  },
+  "license": "MIT",
+  "main": "main.js",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}
