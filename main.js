@@ -3,10 +3,17 @@ const crypto = require('crypto')
 const fs = require('fs')
 
 async function getPathname(context) {
-  let {url: contextUrl} = await context.util.models.request.getById(context.meta.requestId)
+  let {url: contextUrl, parameters} = await context.util.models.request.getById(context.meta.requestId)
   const compiled = _.template(contextUrl, {interpolate: /{{([\s\S]+?)}}/g})
   const url = new URL(compiled(context.context))
-  return url.pathname
+  const queryParams = {}
+  const params = parameters.filter(param => !param.disabled).map(param => {
+    queryParams[param.name] = param.value
+    return param
+  })
+  const paramCount = parameters.filter(param => !param.disabled).length
+  const query = paramCount > 0 ? '?' + new URLSearchParams(queryParams).toString() : ''
+  return `${url.pathname}${query}`
 }
 
 module.exports.templateTags = [{
