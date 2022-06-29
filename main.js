@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
 const fs = require('fs')
+const _ = require('lodash')
 
 async function getPathname(context) {
   let {url: contextUrl, parameters} = await context.util.models.request.getById(context.meta.requestId)
